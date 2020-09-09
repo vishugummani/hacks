@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+   box-sizing: border-box;
+   background: #f1f1f1;
+}
+
+.header {
+  background-color:white ;
+  padding: 2px;
+  
+}
+
+#navbar {
+  
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+#navbar1 {
+  display: none;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar1 a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar1 a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar1 a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.instagram {
+  background: #dd4b39;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+
+.content {
+  padding: 16px;
+  margin-left: 75px; margin-right: 300px; 
+}
+
+
+
+          
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.column1 {
+  float: left;
+  width:70%;
+   margin-right:10px;
+  padding: 10px;
+  
+  
+ 
+  margin-top: 15px;
+  margin-left: 70px;
+  background-color: white; 
+
+  /* Should be removed. Only for demonstration */
+}
+.column {
+  float: left;
+  width: 19%;
+  padding: 10px;
+  height: 300px;
+  margin-top: 15px;
+  margin-left: 5px;
+  text-align: center;
+  background-color: white;
+  font-size: 21px;
+  font-family: regular;
+  }
+  .column12 {
+  float: left;
+  
+  padding: 10px;
+  height: 300px;
+  margin-top: 15px;
+  margin-left: 5px;
+  text-align: center;
+  background-color: white;
+  font-size: 21px;
+  font-family: regular;
+  border: 1px  solid red;
+  width: 96%;
+  }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ #top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#top:hover {
+  background-color: #555;
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: red;
+}
+
+.container {
+  position: relative;
+  width: 100%
+  margin: 0 auto;
+}
+
+.container img {vertical-align: middle;
+height: 20%;
+margin-bottom: 15px;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.6); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 96.5%;
+  margin-left: 0px;font-size: 21px;
+  font-family: regular;
+  margin-bottom: 5px;
+}
+
+.footer {
+  padding: 20px;
+  display: block;
+  background:black;
+  margin-top: 20px;
+
+}
+.footer li{
+  text-decoration: none;
+  display: inline-flex;
+  float: left;
+  margin-left: 20px;
+font-size: 15px;
+}
+.footer li a{
+  color: white;
+  display: inline-flex;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+  
+  .sideheader p{
+    font-size: 10px;
+    margin-left: 100px;
+  }
+   #navbar {
+ display: none;
+  overflow: hidden;
+  background-color: #333;
+}
+
+  #navbar1 {
+ display: block;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar1 a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar1 a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar1 a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.icon-bar {
+ display: none;
+}
+
+.column1 {
+  
+  width: 88%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+
+  /* Should be removed. Only for demonstration */
+}
+.column {
+ 
+display: none;
+  /* Should be removed. Only for demonstration */
+}
+
+.container {
+  position: relative;
+  width: 100%
+  margin: 0 auto;
+}
+
+.container img {vertical-align: middle;
+height: 20%;
+margin-bottom: 15px;}
+
+.container .content {
+  position:relative;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.6); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 93%;
+  margin-left: 0px;font-size: 16px;
+  font-family: regular;
+  margin-bottom: 5px;
+
+}
+.overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: transparent;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  }
+
+  .info {
+  border-color: #2196F3;
+  color: dodgerblue;
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+
+.footer{
+  margin-bottom: 10px;
+}
+.footer li{
+   margin-bottom: 10px;
+   margin-right: 30px;
+  }
+  .footer p{
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+  #top{
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header" >
+	<div style="margin-bottom: 10px;"><a href="#"><img style="margin-left: 10px; height: 100px;width: 100px;" src="Cyber.png"></a></div>
+	<div class="sideheader">
+		<p style="text-align: right; margin-top: -70px; font-size: 20px; margin-right:50px;">India's free Cyber Security Tutorials</p>
+	</div>
+
+		
+
+	
+
+</div>
+
+<div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="#">Kali Linux</a>
+  <a href="#">Tools</a>
+  <a href="#">Books</a>
+  <a href="#">How To</a>
+  <a style="color: red;" href="#"><b> DONATE</b> </a>
+</div>
+<div id="navbar1">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="#">Kali Linux</a>
+  <a href="#" onclick="openNav()">More <i style=" border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);"></i></a>
+</div>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">Tools</a>
+    <a href="#">Books</a>
+    <a href="#">How To</a>
+    <a style="color: red;" href="#">DONATE</a>
+  </div>
+</div>
+
+<div class="icon-bar">
+  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+  <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> 
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+</div>
+<div class="row">
+  <div class="column1">
+    <div class="container">
+  <img src="kali.jpg" alt="Notebook" style="width:100%;">
+  <div class="content">
+    <h1>Kali Linux Everywhere!!!</h1>
+    <p>Most of the Cyber security learners try to learn Kali linux first, because there are more than 600 tools included under this OS for penetration testing and more Cyber Security perposes under offensive security.So its better to learn kali linux those who are interested in Ethical Hacking and Cyber Security.</p>
+    <button class="btn info">More...</button>
+  </div>
+
+  </div>
+  <div class="container">
+  <img src="tools.jpg" alt="Notebook" style="width:100%; height: 30%;">
+  <div class="content">
+    <h1>Cyber Security Tools</h1>
+    <p>IT environment protecion is very critical.Every organization should take Cyber Security very seriously.In this internet world hacking can affect company or organization businesses.To overcome from this hacking we need cyber security.There are many tools available for testing security. </p>
+    <button class="btn info">More...</button>
+  </div>
+
+  </div>
+
+  <div class="container">
+  <img src="book.jpg" alt="Notebook" style="width:100%; ">
+  <div class="content">
+    <h1>Cyber Security Books</h1>
+    <p>There are many books available online.In this section you are able to see many Cyber Security books which may help you to study more about this topic.</p>
+    <button class="btn info">More...</button>
+  </div>
+
+  </div>
+  </div>
+  <!--<div class="row1">
+  <div class="column1">
+    <div class="container">
+
+
+  <div class="content">
+    <h1>Kali Linux Everywhere!!!</h1>
+    <p>Most of the Cyber security learners try to learn Kali linux first, because there are more than 600 tools included under this OS for penetration testing and more Cyber Security perposes under offensive security.So its better to learn kali linux those who are interested in Ethical Hacking and Cyber Security.</p>
+    <button class="btn info">More...</button>
+  </div>
+
+  </div>
+</div>-->
+
+  <div class="column">
+    
+    <p>Advertisements</p>
+  </div>
+  <div class="column">
+    
+
+    <p>Advertisements</p>
+  </div>
+
+</div>
+<!--<button onclick="topFunction()" id="top" title="Go to top">Top</button>-->
+<div class="footer">
+  <li><a href="#">Who we are?</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Aim of us</a></li>
+    <li><a href="#">Report and Contact</a></li>
+    <li><a href="#">Donate</a></li>
+
+    <p style="font-size: 15px;color: white; margin-bottom: 5px;margin-top: 50px; margin-left: 10px">@all rights are reserved.</p>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+<script>
+var mybutton = document.getElementById("top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+</body>
+</html>
